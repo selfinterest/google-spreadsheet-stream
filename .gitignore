@@ -1,0 +1,5 @@
+# Created by .gitignore support plugin (hsz.mobi)
+node_modules
+.idea
+primary-documents-key-file.pem
+google-spreadsheet-stream.iml
