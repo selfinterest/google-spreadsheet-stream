@@ -11,21 +11,23 @@ To achieve this end, it does two things differently than most comparable librari
 Example
 --------
 ```javascript
-var gsStream = require("google-spreadsheet-stream").stream;
+var gsStream = require("./lib/main.js").stream, fs = require("fs"), _ = require("highland");
 
 var gsReader = gsStream
-	.email('my-gmail-service-account-email@gmail.com')
-	.keyFile("./my-key-file.pem")
-	.spreadsheetId("1CgmFXfwRL1vuNb4y3JN42mkmWwB3tPQ_GLwJDGujXGc")
-	.worksheetId("o2xutm5")
+	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
+	.keyFile("./primary-documents-key-file.pem")
+	.spreadsheetName("TestSpreadsheet")
+	.worksheetName("Sheet1")
 	.https(true)
+	.limit("1")         //return only 1 row
+	.offset("2")        //start at the second row
 	.createStream()
 	;
 
+_(gsReader).map(function(obj){
+	return JSON.stringify(obj);
+}).pipe(fs.createWriteStream("./rows.txt"));
 
-gsReader.on("data", function(data){
-	console.log(data);
-});
 ```
 
 You don't need to know the spreadsheetId or worksheetId, either. If you're missing these, just specify the name of the spreadsheet/worksheet and google-spreadsheet-stream will first query Google's API to fill in the missing information.
