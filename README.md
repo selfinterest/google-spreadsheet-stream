@@ -13,8 +13,6 @@ Example
 ```javascript
 var gsStream = require("./lib/main.js").stream;
 
-
-
 var gsReader = gsStream
 	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
 	.keyFile("./primary-documents-key-file.pem")
