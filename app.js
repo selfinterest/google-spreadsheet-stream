@@ -9,18 +9,12 @@ var gsReader = gsStream
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
 	.https(true)
-	.limit("1")
-	.offset("2")
+	.limit("1")         //return only 1 row
+	.offset("2")        //start at the second row
 	.createStream()
 	;
 
-gsReader.on("row", function(data){
-	console.log(data.name);
-});
 
-gsReader.on("totalResults", function(total){
-
-});
 
 
 
