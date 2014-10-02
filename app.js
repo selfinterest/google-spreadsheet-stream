@@ -13,3 +13,8 @@ var gsReader = gsStream
 	.https(true)
 	.createStream()
 	;
+
+
+gsReader.on("data", function(data){
+	console.log(data);
+});
