@@ -1,7 +1,7 @@
 /**
  * Created by twatson on 10/1/14.
  */
-var gsStream = require("./lib/main.js").stream, fs = require("fs"), through2 = require("through2"), _ = require("highland");
+var gsStream = require("./lib/main.js").stream, fs = require("fs"), _ = require("highland");
 
 var gsReader = gsStream
 	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
@@ -9,6 +9,8 @@ var gsReader = gsStream
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
 	.https(true)
+	.limit("1")
+	.offset("2")
 	.createStream()
 	;
 
