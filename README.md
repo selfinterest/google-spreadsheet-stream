@@ -27,3 +27,5 @@ gsReader.on("data", function(data){
 	console.log(data);
 });
 ```
+
+You don't need to know the spreadsheetId or worksheetId, either. If you're missing these, just specify the name of the spreadsheet/worksheet and google-spreadsheet-stream will first query Google's API to fill in the missing information.
