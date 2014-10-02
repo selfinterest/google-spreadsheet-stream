@@ -11,7 +11,7 @@ To achieve this end, it does two things differently than most comparable librari
 Example
 --------
 ```javascript
-var gsStream = require("./lib/main.js").stream;
+var gsStream = require("google-spreadsheet-stream").stream;
 
 var gsReader = gsStream
 	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
