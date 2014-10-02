@@ -11,8 +11,10 @@
   "dependencies": {
     "google-oauth-jwt": "^0.1.4",
     "googleclientlogin": "^0.2.8",
+    "highland": "^2.0.0",
     "lodash": "^2.4.1",
     "q": "^1.0.1",
+    "request": "^2.44.0",
     "winston": "^0.8.0",
     "xml2json": "^0.5.1"
   },
