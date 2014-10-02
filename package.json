@@ -16,6 +16,7 @@
     "q": "^1.0.1",
     "request": "^2.44.0",
     "winston": "^0.8.0",
+    "xml-stream": "^0.4.4",
     "xml2json": "^0.5.1"
   },
   "devDependencies": {
