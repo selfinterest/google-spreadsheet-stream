@@ -1,5 +1,5 @@
 {
-  "name": "google-spreadsheet-stream",
+  "name": "google-spreadsheet-stream-reader",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
