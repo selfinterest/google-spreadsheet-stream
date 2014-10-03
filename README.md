@@ -14,8 +14,8 @@ Example
 var gsStream = require("./lib/main.js").stream, fs = require("fs"), _ = require("highland");
 
 var gsReader = gsStream
-	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
-	.keyFile("./primary-documents-key-file.pem")
+	.email('me@developer.gserviceaccount.com')
+	.keyFile("key-file.pem")
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
 	.https(true)
