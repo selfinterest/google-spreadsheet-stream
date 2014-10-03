@@ -11,6 +11,7 @@ var gsReader = gsStream
 	.https(true)
 	.limit("1")         //return only 1 row
 	.offset("2")        //start at the second row
+	
 	.createStream()
 	;
 
@@ -19,5 +20,6 @@ var gsReader = gsStream
 
 
 _(gsReader).map(function(obj){
+	console.log(obj);
 	return JSON.stringify(obj);
 }).pipe(fs.createWriteStream("./rows.txt"));
