@@ -2,12 +2,12 @@
   "name": "google-spreadsheet-stream",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Terrence Watson <parliamentaryterrence@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "google-oauth-jwt": "^0.1.4",
     "googleclientlogin": "^0.2.8",
