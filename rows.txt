@@ -1,1 +1,1 @@
-{"name":"Peter","address":"Georgetown","food":""}
+{"_id":"https://spreadsheets.google.com/feeds/list/1CgmFXfwRL1vuNb4y3JN42mkmWwB3tPQ_GLwJDGujXGc/o2xutm5/private/full/cokwr","title":"A Briefing Paper on Discussions within the Committee of Ministers on Fundamental Rights","pages":"10","searchterms":"Constitutional Conference","filename":"BriefPaperDiscCommMinFundRights1969Dec","date":"1969 (December 18)","csvid":"1","author":"","corpauthor":"Constitutional Conference, Secretariat of the Conference","edition":"","comments":"","linkstohtml":"","delete":"","catalog":""}
