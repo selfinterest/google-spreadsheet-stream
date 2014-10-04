@@ -1,13 +1,14 @@
 {
   "name": "google-spreadsheet-stream-reader",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
-  "main": "main.js",
+  "main": "./lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Terrence Watson <parliamentaryterrence@gmail.com>",
   "license": "MIT",
+   "repository": "https://github.com/selfinterest/google-spreadsheet-stream",
   "dependencies": {
     "google-oauth-jwt": "^0.1.4",
     "googleclientlogin": "^0.2.8",
