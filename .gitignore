@@ -3,3 +3,5 @@ node_modules
 .idea
 primary-documents-key-file.pem
 google-spreadsheet-stream.iml
+app.js
+rows.txt

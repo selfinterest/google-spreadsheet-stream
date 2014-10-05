@@ -6,12 +6,12 @@ var gsStreamFactory = require("./lib/main.js").factory, fs = require("fs"), _ = 
 var gsReadStream = gsStreamFactory
 	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
 	.keyFile("./primary-documents-key-file.pem")
-	.spreadsheetName("PrimaryDocumentsTest")
-	.worksheetName("Sheet1")
+	.spreadsheetId("1CgmFXfwRL1vuNb4y3JN42mkmWwB3tPQ_GLwJDGujXGc")
+	.worksheetId('o2xutm5')
 	.https(true)
-	.limit(1)         //return only 1 row
-	///.offset(2)        //start at the second row
-	//.query('name = Terrence')
+	.limit(100)         //return only 1 row
+	//.offset(2)        //start at the second row
+	//.query('name = Terrence') //only return rows where name is Terrence
 	.createStream()
 	;
 

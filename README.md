@@ -1,7 +1,6 @@
 google-spreadsheet-stream-reader
 ===============================
-
-Google Spreadsheet Stream Reader is aimed at people who need to work with large (several thousand rows) Google spreadsheets.
+This library is aimed at people who need to work with large (several thousand rows) Google spreadsheets.
 
 To achieve this end, it does two things differently than most comparable libraries:
 
@@ -11,18 +10,21 @@ To achieve this end, it does two things differently than most comparable librari
 Example
 --------
 ```javascript
-var gsStream = require("./lib/main.js").stream, fs = require("fs"), _ = require("highland");
+var gsStreamFactory = require("./lib/main.js").factory, fs = require("fs"), _ = require("highland");
 
-var gsReader = gsStream
-	.email('me@developer.gserviceaccount.com')
-	.keyFile("key-file.pem")
-	.spreadsheetName("TestSpreadsheet")
-	.worksheetName("Sheet1")
-	.https(true)
-	.limit("1")         //return only 1 row
-	.offset("2")        //start at the second row
-	.createStream()
+var gsReader = gsStreamFactory
+	.email('me@developer.gserviceaccount.com')  //Your developer email address
+	.keyFile("key-file.pem")                    //Your key file
+	.spreadsheetName("TestSpreadsheet")         //Can also use spreadsheetId, if you know it
+	.worksheetName("Sheet1")                    //Can use worksheetId, if you know it
+	.https(true)                                //Use https
+	.limit("10")                                //return only 10 rows
+	.offset("10")                               //start at row 10
+	.query("Name = Terrence")                   //Return only the rows where the Name column is equal to Terrence
+	.createStream()                             //Once options are set, creates the stream!
 	;
+
+// Now do something stream-like with gsReader. In this example, we're passing it to the Highland library to stringify each returned row, then piping to a file stream.
 
 _(gsReader).map(function(obj){
 	return JSON.stringify(obj);
@@ -30,4 +32,17 @@ _(gsReader).map(function(obj){
 
 ```
 
-You don't need to know the spreadsheetId or worksheetId, either. If you're missing these, just specify the name of the spreadsheet/worksheet and google-spreadsheet-stream will first query Google's API to fill in the missing information.
+TODO
+-----
+Some kind of writable stream, but that will probably be a separate module. Can you imagine how cool it would be to be able to do this:
+```javascript
+
+var gsReader = gsStreamFactory.createReadStream();
+var gsWriter = gsStreamFactory.createWriteStream();
+
+_(gsReader).map(function(row){
+    row.name = "A different name!";
+    return row;
+}).pipe(gsWriter);
+
+```
