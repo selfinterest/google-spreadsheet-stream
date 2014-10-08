@@ -1,5 +1,6 @@
+
 google-spreadsheet-stream-reader
-===============================
+==================================
 This library is aimed at people who need to work with large (several thousand rows) Google spreadsheets.
 
 To achieve this end, it does two things differently than most comparable libraries:

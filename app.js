@@ -9,7 +9,7 @@ var gsReadStream = gsStreamFactory
 	.spreadsheetId("1CgmFXfwRL1vuNb4y3JN42mkmWwB3tPQ_GLwJDGujXGc")
 	.worksheetId('o2xutm5')
 	.https(true)
-	.limit(100)         //return only 1 row
+	.limit(10)         //return only 1 row
 	//.offset(2)        //start at the second row
 	//.query('name = Terrence') //only return rows where name is Terrence
 	.createStream()
@@ -26,6 +26,10 @@ gsReadStream.on("colCount", function(data){
 
 gsReadStream.on("totalResults", function(data){
 	console.log("This many results: "+data);
+});
+
+gsReadStream.on("end", function(){
+	console.log("All done");
 });
 
 _(gsReadStream).map(function(obj){
