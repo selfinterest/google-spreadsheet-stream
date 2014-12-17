@@ -1,7 +1,7 @@
 /**
  * Created by twatson on 10/1/14.
  */
-var gsStreamFactory = require("./lib/main.js").factory, fs = require("fs"), _ = require("highland");
+var gsStreamFactory = require("./lib/main.js").factory;
 
 
 var express = require("express");

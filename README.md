@@ -1,34 +1,41 @@
 google-spreadsheet-stream-reader
-==================================
+================================
 This library is aimed at people who need to work with large (several thousand rows) Google spreadsheets.
 
-To achieve this end, it does two things differently than most comparable libraries:
+To achieve this end, it does three things differently than most comparable libraries:
 
    1. It uses streams so that at no point must all the spreadsheet rows be loaded into memory.
    2. It lets the consumer of the stream determine just how many rows to return.
+   3. It leverages Google's API to allow for querying based on conditions.
 
 Example
 --------
 ```javascript
-var gsStreamFactory = require("./lib/main.js").factory, fs = require("fs"), _ = require("highland");
+var gsStreamFactory = require("google-spreadsheet-stream-reader").factory;
 
-var gsReader = gsStreamFactory
-	.email('me@developer.gserviceaccount.com')  //Your developer email address
-	.keyFile("key-file.pem")                    //Your key file
-	.spreadsheetName("TestSpreadsheet")         //Can also use spreadsheetId, if you know it
-	.worksheetName("Sheet1")                    //Can use worksheetId, if you know it
-	.https(true)                                //Use https
-	.limit("10")                                //return only 10 rows
-	.offset("10")                               //start at row 10
-	.query("Name = Terrence")                   //Return only the rows where the Name column is equal to Terrence
-	.createStream()                             //Once options are set, creates the stream!
-	;
+var gsReadStream = gsStreamFactory
+	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
+	.keyFile("./primary-documents-key-file.pem")
+	.spreadsheetName("TestSpreadsheet")
+	.worksheetName("Sheet1")
+	.https(true);        /use HTTPS
+	.limit(10)           //return only 10 rows
+	.offset(2)           //start at the second row
+	.query('name = Terrence') //only return rows where name is Terrence
+;
 
-// Now do something stream-like with gsReader. In this example, we're passing it to the Highland library to stringify each returned row, then piping to a file stream.
+//Set up express
+var express = require("express");
+var router = express.Router();
+var app = express();
 
-_(gsReader).map(function(obj){
-	return JSON.stringify(obj);
-}).pipe(fs.createWriteStream("./rows.txt"));
+router.get("/", function(req, res){
+	res.setHeader("Content-Type", "application/json; charset=UTF-8");
+	gsReadStream.createJsonStream().pipe(res);
+});
+
+app.use(router);
+app.listen(4000);
 
 ```
 
