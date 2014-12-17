@@ -1,6 +1,3 @@
-google-spreadsheet-stream-reader
-================================
-
 This library is aimed at people who need to work with large (several thousand rows) Google spreadsheets.
 
 To achieve this end, it does three things differently than most comparable libraries:
@@ -8,6 +5,10 @@ To achieve this end, it does three things differently than most comparable libra
    1. It uses streams so that at no point must all the spreadsheet rows be loaded into memory.
    2. It lets the consumer of the stream determine just how many rows to return.
    3. It leverages Google's API to allow for querying based on conditions.
+
+Installation
+-------------
+`npm install google-spreadsheet-stream-reader`
 
 Example
 --------
@@ -19,7 +20,7 @@ var gsReadStream = gsStreamFactory
 	.keyFile("./primary-documents-key-file.pem")
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
-	.https(true);        /use HTTPS
+	.https(true)         //use HTTPS
 	.limit(10)           //return only 10 rows
 	.offset(2)           //start at the second row
 	.query('name = Terrence') //only return rows where name is Terrence

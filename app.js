@@ -22,7 +22,7 @@ var gsReadStream = gsStreamFactory
 	.keyFile("./primary-documents-key-file.pem")
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
-	.https(true);
+	.https(true)
 	.limit(10)         //return only 10 rows
 	.offset(2)        //start at the second row
 	.query('name = Terrence') //only return rows where name is Terrence
