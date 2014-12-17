@@ -22,10 +22,8 @@ var gsReadStream = gsStreamFactory
 	.keyFile("./primary-documents-key-file.pem")
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
-	//.spreadsheetId("1CgmFXfwRL1vuNb4y3JN42mkmWwB3tPQ_GLwJDGujXGc")
-	//.worksheetId('o2xutm5')
 	.https(true);
-	//.limit(10)         //return only 1 row
-	//.offset(2)        //start at the second row
-	//.query('name = Terrence') //only return rows where name is Terrence
-
+	.limit(10)         //return only 10 rows
+	.offset(2)        //start at the second row
+	.query('name = Terrence') //only return rows where name is Terrence
+;
