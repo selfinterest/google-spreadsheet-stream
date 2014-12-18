@@ -23,7 +23,6 @@ var gsReadStream = gsStreamFactory
 	.spreadsheetName("TestSpreadsheet")
 	.worksheetName("Sheet1")
 	.https(true)
-	.limit(10)         //return only 10 rows
-	.offset(2)        //start at the second row
-	.query('name = Terrence') //only return rows where name is Terrence
+	.limit(1)         //return only 1 row
+	.query('food = Lamb') //only return rows where name is Terrence
 ;

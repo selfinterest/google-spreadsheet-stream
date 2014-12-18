@@ -22,7 +22,6 @@ var gsReadStream = gsStreamFactory
 	.worksheetName("Sheet1")
 	.https(true)         //use HTTPS
 	.limit(10)           //return only 10 rows
-	.offset(2)           //start at the second row
 	.query('name = Terrence') //only return rows where name is Terrence
 ;
 
