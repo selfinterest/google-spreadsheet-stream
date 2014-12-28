@@ -20,9 +20,10 @@ app.listen(4000);
 var gsReadStream = gsStreamFactory
 	.email('759184919979-tfinm66j1hq49b3690039o8mfn60gfe3@developer.gserviceaccount.com')
 	.keyFile("./primary-documents-key-file.pem")
-	.spreadsheetName("TestSpreadsheet")
+	.spreadsheetName("PrimaryDocumentsTest")
 	.worksheetName("Sheet1")
 	.https(true)
-	.limit(1)         //return only 1 row
-	.query('food = Lamb') //only return rows where name is Terrence
+	.limit(150)         //return only 1 row
+    //.offset(4)
+	//.query('food = Lamb') //only return rows where name is Terrence
 ;
